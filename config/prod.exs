@@ -56,3 +56,9 @@ config :logger, level: :info
 #
 #     config :tilex, Tilex.Endpoint, server: true
 #
+
+config :tilex, Tilex.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "tilex_prod",
+  hostname: "localhost",
+  pool: Ecto.Adapters.SQL.Sandbox
