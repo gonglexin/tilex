@@ -6,7 +6,8 @@
     "watch": "brunch watch --stdin"
   },
   "engines": {
-    "node": "5.2.0"
+    "node": "5.2.0",
+    "npm": "3.3.12"
   },
   "dependencies": {
     "phoenix": "file:deps/phoenix",
