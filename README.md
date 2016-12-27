@@ -58,6 +58,21 @@ Run the tests with:
 $ mix text
 ```
 
+### Deployment
+
+Create a Heroku application, and install the [Phoenix Buildpacks](https://github.com/gjaldon/heroku-buildpack-phoenix-static):
+
+```
+$ heroku buildpacks:set https://github.com/HashNuke/heroku-buildpack-elixir
+$ heroku buildpacks:add https://github.com/gjaldon/heroku-buildpack-phoenix-static
+```
+
+Then, deploy:
+
+```
+$ git push heroku master
+```
+
 ### Contributing
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) it
