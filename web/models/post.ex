@@ -4,6 +4,7 @@ defmodule Tilex.Post do
   schema "posts" do
     field :title, :string
     field :body, :string
+    field :slug, :string
 
     belongs_to :channel, Tilex.Channel
 
@@ -19,6 +20,7 @@ defmodule Tilex.Post do
     |> validate_required([:title, :body, :channel_id])
     |> validate_length(:title, max: 50)
     |> validate_length_of_body
+    |> slugify()
   end
 
   defp validate_length_of_body(changeset) do
@@ -34,5 +36,9 @@ defmodule Tilex.Post do
     else
       changeset
     end
+  end
+
+  defp slugify(changeset) do
+    put_change(changeset, :slug, SecureRandom.hex(6))
   end
 end

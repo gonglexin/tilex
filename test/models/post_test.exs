@@ -37,4 +37,12 @@ defmodule Tilex.PostTest do
     changeset = Post.changeset(%Post{}, @invalid_attrs_body)
     refute changeset.valid?
   end
+
+  test "new posts get a slug on insert" do
+    changeset = Post.changeset(%Post{}, @valid_attrs)
+    assert changeset.valid?
+
+    slug = get_change(changeset, :slug)
+    assert String.length(slug) == 12
+  end
 end
